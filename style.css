@@ -50,6 +50,22 @@
     color: #f39c12;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+}
+
 
 @media screen and (max-width: 768px) {
     #nav-list {
