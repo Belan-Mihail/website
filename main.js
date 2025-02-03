@@ -9,3 +9,5 @@ function toggleMenu() {
     
      hamburger.classList.toggle('open');
 }
+
+console.log('main.js is loaded');
