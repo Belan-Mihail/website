@@ -1,4 +1,11 @@
 function toggleMenu() {
     const navList = document.getElementById('nav-list')
-    navList.classList.toggle('open')
+    const hamburger = document.getElementById('hamburger-menu')
+    
+    
+     
+     navList.classList.toggle('open');
+    
+    
+     hamburger.classList.toggle('open');
 }
