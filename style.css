@@ -172,20 +172,26 @@
 }
 
 /* Slider */
+/* Slider Styles */
 .services-slider {
     width: 48%;
     position: relative;
+    overflow: hidden; /* Убедимся, что только один слайд видим */
 }
 
 .slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Плавный переход */
 }
 
 .slider {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    width: 100%; /* Каждый слайд должен занимать 100% ширины контейнера */
+    flex-shrink: 0; /* Чтобы не было сжатию */
 }
 
 .slide img {

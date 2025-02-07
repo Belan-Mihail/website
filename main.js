@@ -16,8 +16,8 @@ const dots = document.querySelectorAll('.dot');
 
 function changeSlide(n) {
     currentSlideIndex += n;
-    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
-    if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1; // Обрабатываем случай, если индекс меньше 0
+    if (currentSlideIndex >= slides.length) currentSlideIndex = 0; // Обрабатываем случай, если индекс больше длины слайдов
 
     showSlide(currentSlideIndex);
 }
@@ -28,10 +28,11 @@ function currentSlide(n) {
 }
 
 function showSlide(n) {
-    const slider = document.querySelector('.slider');
-    slider.style.transform = `translateX(-${n * 100}%)`;
+    const sliderContainer = document.querySelector('.slider-container');
+    const slideWidth = slides[0].offsetWidth; // Определяем ширину одного слайда
+    sliderContainer.style.transform = `translateX(-${n * slideWidth}px)`; // Сдвигаем слайдер на ширину слайда
 
-    // Update dots
+    // Обновляем точки (pagination)
     dots.forEach((dot, index) => {
         if (index === n) {
             dot.classList.add('active');
@@ -41,10 +42,10 @@ function showSlide(n) {
     });
 }
 
-// Automatic slide change every 5 seconds
+// Автоматическая смена слайдов каждые 5 секунд
 setInterval(() => {
     changeSlide(1);
 }, 5000);
 
-// Initial slide
+// Изначально отображаем первый слайд
 showSlide(currentSlideIndex);
