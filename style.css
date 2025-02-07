@@ -181,7 +181,9 @@
 
 .slider-container {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Плавный переход */
+    transition: transform 0.5s ease-in-out;
+    position: relative; /* Ensure it doesn't collapse */
+    height: 30rem; /* Explicit height for consistency */
 }
 
 .slider {
@@ -190,16 +192,17 @@
 }
 
 .slide {
-    width: 100%; /* Каждый слайд должен занимать 100% ширины контейнера */
-    flex-shrink: 0; /* Чтобы не было сжатию */
+    width: 100%; /* Each slide takes up 100% of the container's width */
+    flex-shrink: 0; /* Prevents slides from shrinking */
 }
 
 .slide img {
     width: 100%;
-    height: auto;
+    height: 30rem;
     border-radius: 10px;
 }
 
+/* Slider Controls and Pagination */
 .slider-controls {
     position: absolute;
     top: 50%;
@@ -207,6 +210,17 @@
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
+    z-index: 100; /* Ensure controls stay above the slides */
+}
+
+.slider-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100; /* Ensure pagination stays above the slides */
 }
 
 .prev, .next {
@@ -223,14 +237,6 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.slider-pagination {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
 
 .dot {
     width: 10px;
