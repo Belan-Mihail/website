@@ -10,21 +10,41 @@ function toggleMenu() {
      hamburger.classList.toggle('open');
 }
 
-const swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        type: 'bullets',
-    },
-    autoplay: {
-        delay: 5000, // Change slide every 5 seconds
-        disableOnInteraction: false,
-    },
-    loop: true,
-});
+let currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function changeSlide(n) {
+    currentSlideIndex += n;
+    if (currentSlideIndex < 0) currentSlideIndex = slides.length - 1;
+    if (currentSlideIndex >= slides.length) currentSlideIndex = 0;
+
+    showSlide(currentSlideIndex);
+}
+
+function currentSlide(n) {
+    currentSlideIndex = n - 1;
+    showSlide(currentSlideIndex);
+}
+
+function showSlide(n) {
+    const slider = document.querySelector('.slider');
+    slider.style.transform = `translateX(-${n * 100}%)`;
+
+    // Update dots
+    dots.forEach((dot, index) => {
+        if (index === n) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+// Automatic slide change every 5 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 5000);
+
+// Initial slide
+showSlide(currentSlideIndex);

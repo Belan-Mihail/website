@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
     <link rel="stylesheet" href="./style.css">
-    <!-- Include Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <nav id="navbar">
@@ -52,52 +50,33 @@
                 
                 <!-- Right Part with Swiper Slider -->
                 <div class="services-slider">
-                    <div class="swiper-container">
-                        <!-- Swiper Wrapper -->
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img1.jpg" alt="Project 1">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="slide">
+                                <img src="img/arbeiten/img1.jpg" alt="work 1">
                             </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img2.jpg" alt="Project 2">
+                            <div class="slide">
+                                <img src="img/arbeiten/img2.jpg" alt="work 2">
                             </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img3.jpg" alt="Project 3">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img4.jpg" alt="Project 4">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img5.jpg" alt="Project 5">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img6.jpg" alt="Project 6">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img7.jpg" alt="Project 7">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img8.jpg" alt="Project 8">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img9.jpg" alt="Project 9">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="img/arbeiten/img10.jpg" alt="Project 10">
+                            <div class="slide">
+                                <img src="img/arbeiten/img3.jpg" alt="work 3">
                             </div>
                         </div>
-
-                        <!-- Swiper Pagination (Thumbnails) -->
-                        <div class="swiper-pagination"></div>
-                        <!-- Swiper Navigation Arrows -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        <div class="slider-controls">
+                            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+                        </div>
+                        <div class="slider-pagination">
+                            <div class="dot" onclick="currentSlide(1)"></div>
+                            <div class="dot" onclick="currentSlide(2)"></div>
+                            <div class="dot" onclick="currentSlide(3)"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    
     <script defer src="./main.js"></script>
     
 </body>
